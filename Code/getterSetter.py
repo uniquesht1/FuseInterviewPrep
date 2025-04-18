@@ -1,17 +1,17 @@
 class Person:
     def __init__(self, name):
-        self.__name = name  # private
+        self.__name = name
 
-    # Getter
-    def get_name(self):
+    @property
+    def name(self):  # Getter
         return self.__name
 
-    # Setter
-    def set_name(self, new_name):
-        if new_name != "":
-            self.__name = new_name
+    @name.setter
+    def name(self, value):  # Setter
+        if value != "":
+            self.__name = value
 
 p = Person("Alex")
-print(p.get_name())   # ✅ Output: Alex
-p.set_name("Jordan")  # ✅ Updating the name
-print(p.get_name())   # ✅ Output: Jordan
+print(p.name)     # ✅ Uses getter
+p.name = "Jordan" # ✅ Uses setter
+print(p.name)     # Output: Jordan
